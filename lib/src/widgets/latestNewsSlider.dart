@@ -14,68 +14,69 @@ final List<String> imgList = [
   'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];
 final List<Widget> imageSliders = imgList
-    .map((item) => Container(
-          margin: EdgeInsets.symmetric(horizontal: 15),
-          padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-          child: Column(
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.all(0),
-                height: 160,
-                width: 332,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15)),
-                  child: Image.network(
-                    item,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-              ClipRRect(
-                borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(15)),
-                child: Container(
-                  width: 332,
-                  height: 35,
-                  decoration: BoxDecoration(color: Colors.white, boxShadow: [
-                    BoxShadow(
-                        blurRadius: 5,
-                        spreadRadius: 3,
-                        color: Colors.grey.withOpacity(.5),
-                        offset: Offset.fromDirection(0, 0)),
-                  ]),
-                  padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'India Lost by 102 runs',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        'India Lost by 102 runs',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 8.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+    .map((item) => Stack(
+      children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            shape: BoxShape.rectangle,
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                  spreadRadius: 1,
+                  blurRadius: 2,
+                  color: Colors.grey.withOpacity(.1),
+                  offset: Offset(0, 5)),
             ],
           ),
-        ))
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(30),
+            child: Image.network(
+              'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80',
+              fit: BoxFit.fill,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: Container(
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(30)),
+            ),
+            padding: EdgeInsets.only(
+                top: 10.0, bottom: 10, left: 30, right: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'India Lost by 102 runs',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  '5 minutes ago',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 10.0,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ))
     .toList();
 
 class CarouselWithIndicator extends StatefulWidget {
@@ -93,7 +94,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
       options: CarouselOptions(
         autoPlay: false,
         enlargeCenterPage: false,
-        aspectRatio: 2.15,
+        aspectRatio: 332 / 167,
       ),
     );
   }

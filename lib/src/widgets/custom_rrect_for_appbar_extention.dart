@@ -24,8 +24,6 @@ class AppbarCustomPainter extends CustomPainter {
       ..shader = ui.Gradient.linear(
         rect.centerLeft,
         rect.centerRight,
-        
-        
         [
           _color1,
           _color2,

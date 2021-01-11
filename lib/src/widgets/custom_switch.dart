@@ -13,8 +13,8 @@ class CustomSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var tween = MultiTween<_SwitchBoxProps>()
-      ..add(_SwitchBoxProps.paddingLeft, 0.0.tweenTo(5.0), 1.seconds)
-      ..add(_SwitchBoxProps.color, Colors.red.tweenTo(Colors.blue), 1.seconds)
+      ..add(_SwitchBoxProps.paddingLeft, 0.0.tweenTo(12.0), 1.seconds)
+      ..add(_SwitchBoxProps.color, Color.fromRGBO(255, 65, 65, 1).tweenTo(Color.fromRGBO(255, 65, 65, 1)), 1.seconds)
       ..add(_SwitchBoxProps.text, ConstantTween("EN"), 500.milliseconds)
       ..add(_SwitchBoxProps.text, ConstantTween("BN"), 500.milliseconds)
       ..add(_SwitchBoxProps.rotation, (0.0).tweenTo(0.0), 1.seconds);
@@ -33,42 +33,45 @@ class CustomSwitch extends StatelessWidget {
 
   Widget _buildSwitchBox(
       context, child, MultiTweenValues<_SwitchBoxProps> value) {
-    return Container(
-      decoration: _outerBoxDecoration(value.get(_SwitchBoxProps.color)),
-      width: 40,
-      height: 25,
-      padding: const EdgeInsets.all(3.0),
-      child: Stack(
-        children: [
-          Positioned(
-              child: Padding(
-            padding:
-                EdgeInsets.only(left: value.get(_SwitchBoxProps.paddingLeft)),
+    return Stack(
+      clipBehavior: Clip.antiAlias,
+      children: [
+        Container(
+          alignment: Alignment.center,
+          decoration: _outerBoxDecoration(value.get(_SwitchBoxProps.color)),
+          width: 34,
+          height: 19,
+          padding: const EdgeInsets.all(0),
+        ),
+        Positioned(
+          
+            child: Padding(
+          padding:
+              EdgeInsets.only(left: value.get(_SwitchBoxProps.paddingLeft)),
+          child: Container(
+            decoration: _innerBoxDecoration(value.get(_SwitchBoxProps.color)),
+            width: 22,
+            height: 19,
             child: Transform.rotate(
               angle: value.get(_SwitchBoxProps.rotation),
-              child: Container(
-                decoration:
-                    _innerBoxDecoration(value.get(_SwitchBoxProps.color)),
-                width: 25,
-                child: Center(
-                    child: Text(value.get(_SwitchBoxProps.text),
-                        style: labelStyle)),
-              ),
+              child: Center(
+                  child:
+                      Text(value.get(_SwitchBoxProps.text), style: labelStyle)),
             ),
-          ))
-        ],
-      ),
+          ),
+        ))
+      ],
     );
   }
 
   BoxDecoration _innerBoxDecoration(Color color) => BoxDecoration(
-      borderRadius: BorderRadius.all(Radius.circular(25)), color: color);
+      borderRadius: BorderRadius.all(Radius.circular(25)), color: color,boxShadow: [BoxShadow(offset: Offset(0,3),blurRadius: 3,spreadRadius: 2,color: Colors.black.withOpacity(.3))]);
 
   BoxDecoration _outerBoxDecoration(Color color) => BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(30)),
         border: Border.all(
-          width: 1,
+          width: 0,
           color: color,
         ),
       );

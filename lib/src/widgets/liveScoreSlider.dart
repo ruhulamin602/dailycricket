@@ -12,7 +12,7 @@ final List<String> imgList = [
 ];
 final List<Widget> imageSliders = imgList
     .map((item) => Container(
-          width: 332,
+          // width: 332,
           child: Card(
             elevation: 5,
             color: Colors.white,
@@ -29,15 +29,14 @@ final List<Widget> imageSliders = imgList
                   child: Stack(
                     children: [
                       Container(
-                        
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(239,239,239,1),
+                          color: Color.fromRGBO(239, 239, 239, 1),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        
                         alignment: Alignment.center,
                         padding: EdgeInsets.symmetric(horizontal: 5),
-                        margin: EdgeInsets.symmetric(horizontal: 20,vertical: 5),
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                         child: Text(
                           "international",
                           textAlign: TextAlign.center,
@@ -69,14 +68,14 @@ final List<Widget> imageSliders = imgList
         ))
     .toList();
 
-class CarouselWithIndicatorDemo extends StatefulWidget {
+class LiveScoreSlider extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _CarouselWithIndicatorState();
+    return _LiveScoreSliderState();
   }
 }
 
-class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
+class _LiveScoreSliderState extends State<LiveScoreSlider> {
   int _current = 0;
 
   @override

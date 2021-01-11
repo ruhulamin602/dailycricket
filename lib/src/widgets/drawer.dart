@@ -1,5 +1,7 @@
 import 'dart:math';
 
+
+import 'package:daily_cricket/src/resources/icons/my_flutter_app_icons.dart';
 import 'package:daily_cricket/src/widgets/custom_rrect_for_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -11,6 +13,8 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double _iconSize = 33;
+    Color _color = Colors.black;
     return ClipPath(
         clipper: RectCirculerClipper(),
         child: Container(
@@ -35,7 +39,6 @@ class MyDrawer extends StatelessWidget {
                 Container(
                   alignment: Alignment.centerLeft,
                   height: 150,
-                  
                   padding: EdgeInsets.only(left: 15),
                   child: Image.asset(
                     "assets/images/logo/dailyCricketGreen.png",
@@ -43,7 +46,6 @@ class MyDrawer extends StatelessWidget {
                     width: 150,
                     alignment: Alignment.centerLeft,
                     fit: BoxFit.cover,
-                    
                   ),
                 ),
                 Container(
@@ -52,40 +54,104 @@ class MyDrawer extends StatelessWidget {
                     padding: EdgeInsets.all(0),
                     children: [
                       ListTile(
-                        leading: Icon(Icons.group),
+                        leading: Icon(
+                          MyFlutterApp.web_search_engine,
+                          size: _iconSize,
+                          color: _color,
+                        ),
                         title: Text("Browse Series"),
+                        onTap: () {
+                          print("Browse Series");
+                          Navigator.of(context).pop();
+                        },
                       ),
                       ListTile(
-                        leading: Icon(Icons.group_work_outlined),
+                        leading: Icon(
+                          MyFlutterApp.community,
+                          size: _iconSize,color: _color,
+                        ),
                         title: Text("Browse Team"),
+                        onTap: () {
+                          print("Browse Team");
+                          Navigator.of(context).pop();
+                        },
                       ),
                       ListTile(
-                        leading: Icon(Icons.people_rounded),
+                        leading: Icon(
+                          MyFlutterApp.hockey_player,
+                          size: _iconSize,color: _color,
+                        ),
                         title: Text("Player Profile"),
+                        onTap: () {
+                          print("Player Profile");
+                          Navigator.of(context).pop();
+                        },
                       ),
                       ListTile(
-                        leading: Icon(Icons.language_outlined),
+                        leading: Icon(
+                          MyFlutterApp.planet_earth,
+                          size: _iconSize,color: _color,
+                        ),
                         title: Text("Switch Language"),
+                        onTap: () {
+                          print("Switch Language");
+                          Navigator.of(context).pop();
+                        },
                       ),
                       ListTile(
-                        leading: Icon(Icons.mode_outlined),
+                        leading: Icon(
+                          MyFlutterApp.moon,
+                          size: _iconSize,color: _color,
+                        ),
                         title: Text("Dark Mode"),
+                        onTap: () {
+                          print("Dark Mood");
+                          Navigator.of(context).pop();
+                        },
                       ),
                       ListTile(
-                        leading: Icon(Icons.settings),
+                        leading: Icon(
+                          Icons.settings,color: _color,
+                          size: _iconSize,
+                        ),
                         title: Text("Settings"),
+                        onTap: () {
+                          print("Setting");
+                          Navigator.of(context).pop();
+                        },
                       ),
                       ListTile(
-                        leading: Icon(Icons.face),
+                        leading: Icon(
+                          MyFlutterApp.facebook,
+                          size: _iconSize,color: _color,
+                        ),
                         title: Text("Facebook"),
+                        onTap: () {
+                          print("Facebook");
+                          Navigator.of(context).pop();
+                        },
                       ),
                       ListTile(
-                        leading: Icon(Icons.transfer_within_a_station_rounded),
+                        leading: Icon(
+                          MyFlutterApp.twitter,
+                          size: _iconSize,color: _color,
+                        ),
                         title: Text("Twitter"),
+                        onTap: () {
+                          print("Twitter");
+                          Navigator.of(context).pop();
+                        },
                       ),
                       ListTile(
-                        leading: Icon(Icons.face_unlock_sharp),
+                        leading: Icon(
+                          MyFlutterApp.reddit_1,
+                          size: _iconSize,color: _color,
+                        ),
                         title: Text("Reddit"),
+                        onTap: () {
+                          print("Reddit");
+                          Navigator.of(context).pop();
+                        },
                       ),
                     ],
                   ),
