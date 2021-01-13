@@ -40,6 +40,8 @@ dependencies:
   freezed_annotation: 
   flutter_bloc: 6.0.0
   json_annotation: 
+  provider: ^4.3.2+3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -98,7 +100,7 @@ flutter:
     - family:  MyFlutterApp
       fonts:
          - asset: assets/fonts/MyFlutterApp.ttf
-          
+         
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

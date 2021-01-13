@@ -6,22 +6,21 @@ import 'package:daily_cricket/src/services/api_result.dart';
 import 'package:daily_cricket/src/services/network_exceptions.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
-class ArticleCubit extends Cubit<ResultState<List<Articles>>> {
+class FeaturedArticleCubit extends Cubit<ResultState<Articles>> {
   final APIRepository apiRepository;
 
-  ArticleCubit({this.apiRepository})
+  FeaturedArticleCubit({this.apiRepository})
       : assert(apiRepository != null),
         super(Idle());
 
-  loadArticles() async {
+  loadFeaturedArticle() async {
     emit(ResultState.loading());
-    ApiResult<List<Articles>> apiResult = await apiRepository.fetchArticleList();
-    apiResult.when(success: (List<Articles> data) {
+    ApiResult<Articles> apiResult = await apiRepository.fetchEditorPick();
+    print(apiResult);
+    apiResult.when(success: (Articles data) {
       emit(ResultState.data(data: data));
     }, failure: (NetworkExceptions error) {
       emit(ResultState.error(error: error));
     });
   }
-  
 }

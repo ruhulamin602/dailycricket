@@ -1,8 +1,7 @@
 import 'dart:math';
 
-
 import 'package:daily_cricket/src/resources/icons/my_flutter_app_icons.dart';
-import 'package:daily_cricket/src/widgets/custom_rrect_for_drawer.dart';
+import 'package:daily_cricket/src/widgets/curve_of_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -68,7 +67,8 @@ class MyDrawer extends StatelessWidget {
                       ListTile(
                         leading: Icon(
                           MyFlutterApp.community,
-                          size: _iconSize,color: _color,
+                          size: _iconSize,
+                          color: _color,
                         ),
                         title: Text("Browse Team"),
                         onTap: () {
@@ -79,7 +79,8 @@ class MyDrawer extends StatelessWidget {
                       ListTile(
                         leading: Icon(
                           MyFlutterApp.hockey_player,
-                          size: _iconSize,color: _color,
+                          size: _iconSize,
+                          color: _color,
                         ),
                         title: Text("Player Profile"),
                         onTap: () {
@@ -90,7 +91,8 @@ class MyDrawer extends StatelessWidget {
                       ListTile(
                         leading: Icon(
                           MyFlutterApp.planet_earth,
-                          size: _iconSize,color: _color,
+                          size: _iconSize,
+                          color: _color,
                         ),
                         title: Text("Switch Language"),
                         onTap: () {
@@ -99,9 +101,13 @@ class MyDrawer extends StatelessWidget {
                         },
                       ),
                       ListTile(
-                        leading: Icon(
-                          MyFlutterApp.moon,
-                          size: _iconSize,color: _color,
+                        leading: CircleAvatar(
+                          backgroundColor: Colors.white,
+                          child: Icon(
+                            MyFlutterApp.moon,
+                            size: _iconSize,
+                            color: _color,
+                          ),
                         ),
                         title: Text("Dark Mode"),
                         onTap: () {
@@ -111,7 +117,8 @@ class MyDrawer extends StatelessWidget {
                       ),
                       ListTile(
                         leading: Icon(
-                          Icons.settings,color: _color,
+                          Icons.settings,
+                          color: _color,
                           size: _iconSize,
                         ),
                         title: Text("Settings"),
@@ -121,9 +128,12 @@ class MyDrawer extends StatelessWidget {
                         },
                       ),
                       ListTile(
-                        leading: Icon(
-                          MyFlutterApp.facebook,
-                          size: _iconSize,color: _color,
+                        leading: CircleAvatar(
+                          backgroundColor: Colors.blueAccent,
+                          child: Icon(
+                            MyFlutterApp.facebook,
+                            color: Colors.white,
+                          ),
                         ),
                         title: Text("Facebook"),
                         onTap: () {
@@ -133,8 +143,9 @@ class MyDrawer extends StatelessWidget {
                       ),
                       ListTile(
                         leading: Icon(
-                          MyFlutterApp.twitter,
-                          size: _iconSize,color: _color,
+                          MyFlutterApp.twitter_circled,
+                          size: _iconSize,
+                          color: Colors.blueAccent,
                         ),
                         title: Text("Twitter"),
                         onTap: () {
@@ -143,10 +154,8 @@ class MyDrawer extends StatelessWidget {
                         },
                       ),
                       ListTile(
-                        leading: Icon(
-                          MyFlutterApp.reddit_1,
-                          size: _iconSize,color: _color,
-                        ),
+                        leading: Icon(MyFlutterApp.reddit,
+                            size: _iconSize, color: Colors.redAccent),
                         title: Text("Reddit"),
                         onTap: () {
                           print("Reddit");

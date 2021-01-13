@@ -36,7 +36,7 @@ final List<Widget> imageSliders = imgList
                         alignment: Alignment.center,
                         padding: EdgeInsets.symmetric(horizontal: 5),
                         margin:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                         child: Text(
                           "international",
                           textAlign: TextAlign.center,
@@ -45,23 +45,23 @@ final List<Widget> imageSliders = imgList
                     ],
                   ),
                 ),
-                Positioned(
-                  bottom: 0.0,
-                  left: 0.0,
-                  right: 0.0,
-                  child: Container(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                    child: Text(
-                      '',
-                      style: TextStyle(
-                        color: Colors.blueGrey,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
+                // Positioned(
+                //   bottom: 0.0,
+                //   left: 0.0,
+                //   right: 0.0,
+                //   child: Container(
+                //     padding:
+                //         EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                //     child: Text(
+                //       '',
+                //       style: TextStyle(
+                //         color: Colors.blueGrey,
+                //         fontSize: 20.0,
+                //         fontWeight: FontWeight.bold,
+                //       ),
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           ),
@@ -86,7 +86,7 @@ class _LiveScoreSliderState extends State<LiveScoreSlider> {
         options: CarouselOptions(
             autoPlay: false,
             enlargeCenterPage: true,
-            aspectRatio: 2.5,
+            aspectRatio: 2.6,
             onPageChanged: (index, reason) {
               setState(() {
                 _current = index;

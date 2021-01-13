@@ -1,17 +1,16 @@
-
 import 'package:daily_cricket/src/models/articles/article_response.dart';
 import 'package:daily_cricket/src/models/articles/articles.dart';
+import 'package:daily_cricket/src/models/articles/featured_article_response.dart';
 import 'package:daily_cricket/src/services/api_result.dart';
 import 'package:daily_cricket/src/services/dio_client.dart';
 import 'package:daily_cricket/src/services/network_exceptions.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_config/flutter_config.dart';
 
-
 class APIRepository {
   DioClient dioClient;
-  
-  String _baseUrl = FlutterConfig.get("API_UR");
+
+  String _baseUrl = FlutterConfig.get("API_URL");
 
   APIRepository() {
     var dio = Dio();
@@ -21,10 +20,24 @@ class APIRepository {
 
   Future<ApiResult<List<Articles>>> fetchArticleList() async {
     try {
-      final response = await dioClient
-          .get("movie/popular",);
-      List<Articles> movieList = ArticleResponse.fromJson(response).data;
-      return ApiResult.success(data: movieList);
+      final response = await dioClient.get(
+        "/en/v1/latest-article",
+        queryParameters: {"per_page": 4},
+      );
+      List<Articles> articleList = ArticleResponse.fromJson(response).data;
+      // print(response);
+      return ApiResult.success(data: articleList);
+    } catch (e) {
+      return ApiResult.failure(error: NetworkExceptions.getDioException(e));
+    }
+  }
+
+  Future<ApiResult<Articles>> fetchEditorPick() async {
+    try {
+      final response = await dioClient.get("/en/v1/featured-article");
+      Articles article = FeaturedArticleResponse.fromJson(response).data;
+      // print(response);
+      return ApiResult.success(data: article);
     } catch (e) {
       return ApiResult.failure(error: NetworkExceptions.getDioException(e));
     }
